@@ -1,0 +1,524 @@
+[014552590@coe-ee-cad25 ~/home]$ dc_shell -f synthesis.script
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+              Version K-2015.06-SP5-1 for linux64 - Feb 26, 2016 
+                                        
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb}
+/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25
+read_verilog fifon.v
+Loading db file '/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25'
+Loading db file '/apps/synopsys/I-2013.12-SP5/libraries/syn/dw_foundation.sldb'
+Loading db file '/apps/synopsys/SYNTH/libraries/syn/gtech.db'
+Loading db file '/apps/synopsys/SYNTH/libraries/syn/standard.sldb'
+  Loading link library 'tc240c'
+  Loading link library 'gtech'
+Loading verilog file '/home/014552590/home/fifon.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/014552590/home/fifon.v
+Warning:  /home/014552590/home/fifon.v:14: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/014552590/home/fifon.v:14: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/014552590/home/fifon.v:23: The statements in initial blocks are ignored. (VER-281)
+
+Inferred memory devices in process
+	in routine FIFO_normal line 23 in file
+		'/home/014552590/home/fifon.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     dataout_reg     | Flip-flop |  10   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FIFO_normal line 40 in file
+		'/home/014552590/home/fifon.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     memory_reg      | Flip-flop |  160  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FIFO_normal line 53 in file
+		'/home/014552590/home/fifon.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      rd_p_reg       | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      wr_p_reg       | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FIFO_normal line 75 in file
+		'/home/014552590/home/fifon.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      count_reg      | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|  FIFO_normal/32  |   16   |   10    |      4       |
+|  FIFO_normal/47  |   16   |   10    |      4       |
+======================================================
+Presto compilation completed successfully.
+Current design is now '/home/014552590/home/FIFO_normal.db:FIFO_normal'
+Loaded 1 design.
+Current design is 'FIFO_normal'.
+FIFO_normal
+create_clock clk -name clk -period 2.25
+1
+set_propagated_clock clk
+Information: set_input_delay values are added to the propagated clock skew. (TIM-113)
+1
+set_clock_uncertainty 0.25 clk
+1
+set_propagated_clock clk
+Information: set_input_delay values are added to the propagated clock skew. (TIM-113)
+1
+set_output_delay 0.5 -clock clk [all_outputs]
+1
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port clk]] [get_port reset]]
+{datain[9] datain[8] datain[7] datain[6] datain[5] datain[4] datain[3] datain[2] datain[1] datain[0] r_en w_en}
+set_driving_cell -lib_cell CND2X1 $all_inputs_wo_rst_clk
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+set_input_delay 0.6 -clock clk $all_inputs_wo_rst_clk
+1
+set_output_delay 0.6 -clock clk [all_outputs]
+1
+set_fix_hold [ get_clocks clk ]
+1
+set_output_delay 0.3 -clock clk [all_outputs]
+1
+set_max_delay 2.0999999999999996 -from [all_inputs] -to [all_outputs]
+1
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.5.1 |   *     |
+| Licensed DW Building Blocks        | I-2013.12-DWBB_201312.5 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 4 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'FIFO_normal'
+
+Loaded alib file './alib-52/tc240c.db_NOMIN25.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'FIFO_normal'
+Information: Added key list 'DesignWare' to design 'FIFO_normal'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Warning: Main library 'tc240c' does not specify the following unit required for power: 'Leakage Power'. (PWR-424)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:05    1794.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:05    1794.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:05    1794.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:05    1714.5      0.00       0.0       0.0                              0.0000      0.00  
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:05    1714.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:05    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:06    1713.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1712.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1712.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1712.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1712.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1696.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1696.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1696.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1696.5      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:06    1683.5      0.00       0.0       0.0                              0.0000      0.00  
+Loading db file '/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Warning: Main library 'tc240c' does not specify the following unit required for power: 'Leakage Power'. (PWR-424)
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+create_clock clk -name clk -period 3.0
+1
+update_timing
+Information: Updating design information... (UID-85)
+1
+report_timing -max_paths 5
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 5
+Design : FIFO_normal
+Version: K-2015.06-SP5-1
+Date   : Thu Apr 23 18:30:15 2020
+****************************************
+
+Operating Conditions: NOMIN25   Library: tc240c
+Wire Load Model Mode: top
+
+  Startpoint: wr_p_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: memory_reg[0][9]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  wr_p_reg[1]/CP (CFD2QX1)                 0.00       0.00 r
+  wr_p_reg[1]/Q (CFD2QX1)                  0.31       0.31 r
+  U696/Z (CIVX2)                           0.07       0.38 f
+  U708/Z (CND2X1)                          0.09       0.47 r
+  U665/Z (CNR3XL)                          0.09       0.56 f
+  U661/Z (CNIVX1)                          0.28       0.84 f
+  U1119/Z (CANR2X1)                        0.16       1.00 r
+  U1120/Z (CAN4X1)                         0.21       1.22 r
+  U1126/Z (CND2X1)                         0.07       1.28 f
+  U658/Z (CMXI2X1)                         0.28       1.56 r
+  U1127/Z (CMXI2XL)                        0.15       1.71 f
+  memory_reg[0][9]/D (CFD1XL)              0.00       1.71 f
+  data arrival time                                   1.71
+
+  clock clk (rise edge)                    3.00       3.00
+  clock network delay (ideal)              0.00       3.00
+  clock uncertainty                       -0.25       2.75
+  memory_reg[0][9]/CP (CFD1XL)             0.00       2.75 r
+  library setup time                      -0.28       2.47
+  data required time                                  2.47
+  -----------------------------------------------------------
+  data required time                                  2.47
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                         0.76
+
+
+  Startpoint: wr_p_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: memory_reg[1][8]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  wr_p_reg[1]/CP (CFD2QX1)                 0.00       0.00 r
+  wr_p_reg[1]/Q (CFD2QX1)                  0.31       0.31 r
+  U696/Z (CIVX2)                           0.07       0.38 f
+  U708/Z (CND2X1)                          0.09       0.47 r
+  U665/Z (CNR3XL)                          0.09       0.56 f
+  U661/Z (CNIVX1)                          0.28       0.84 f
+  U712/Z (CANR2X1)                         0.16       1.00 r
+  U713/Z (CAN4X1)                          0.21       1.22 r
+  U729/Z (CND2X1)                          0.07       1.28 f
+  U657/Z (CMXI2X1)                         0.28       1.56 r
+  U730/Z (CMXI2XL)                         0.15       1.71 f
+  memory_reg[1][8]/D (CFD1XL)              0.00       1.71 f
+  data arrival time                                   1.71
+
+  clock clk (rise edge)                    3.00       3.00
+  clock network delay (ideal)              0.00       3.00
+  clock uncertainty                       -0.25       2.75
+  memory_reg[1][8]/CP (CFD1XL)             0.00       2.75 r
+  library setup time                      -0.28       2.47
+  data required time                                  2.47
+  -----------------------------------------------------------
+  data required time                                  2.47
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                         0.76
+
+
+  Startpoint: wr_p_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: memory_reg[1][4]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  wr_p_reg[1]/CP (CFD2QX1)                 0.00       0.00 r
+  wr_p_reg[1]/Q (CFD2QX1)                  0.31       0.31 r
+  U696/Z (CIVX2)                           0.07       0.38 f
+  U708/Z (CND2X1)                          0.09       0.47 r
+  U665/Z (CNR3XL)                          0.09       0.56 f
+  U661/Z (CNIVX1)                          0.28       0.84 f
+  U1029/Z (CANR2X1)                        0.16       1.00 r
+  U1030/Z (CAN4X1)                         0.21       1.22 r
+  U1036/Z (CND2X1)                         0.07       1.28 f
+  U670/Z (CMXI2X1)                         0.28       1.56 r
+  U1038/Z (CMXI2XL)                        0.15       1.71 f
+  memory_reg[1][4]/D (CFD1XL)              0.00       1.71 f
+  data arrival time                                   1.71
+
+  clock clk (rise edge)                    3.00       3.00
+  clock network delay (ideal)              0.00       3.00
+  clock uncertainty                       -0.25       2.75
+  memory_reg[1][4]/CP (CFD1XL)             0.00       2.75 r
+  library setup time                      -0.28       2.47
+  data required time                                  2.47
+  -----------------------------------------------------------
+  data required time                                  2.47
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                         0.76
+
+
+  Startpoint: wr_p_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: memory_reg[0][8]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  wr_p_reg[1]/CP (CFD2QX1)                 0.00       0.00 r
+  wr_p_reg[1]/Q (CFD2QX1)                  0.31       0.31 r
+  U696/Z (CIVX2)                           0.07       0.38 f
+  U708/Z (CND2X1)                          0.09       0.47 r
+  U665/Z (CNR3XL)                          0.09       0.56 f
+  U661/Z (CNIVX1)                          0.28       0.84 f
+  U712/Z (CANR2X1)                         0.16       1.00 r
+  U713/Z (CAN4X1)                          0.21       1.22 r
+  U729/Z (CND2X1)                          0.07       1.28 f
+  U657/Z (CMXI2X1)                         0.28       1.56 r
+  U1106/Z (CMXI2XL)                        0.15       1.71 f
+  memory_reg[0][8]/D (CFD1XL)              0.00       1.71 f
+  data arrival time                                   1.71
+
+  clock clk (rise edge)                    3.00       3.00
+  clock network delay (ideal)              0.00       3.00
+  clock uncertainty                       -0.25       2.75
+  memory_reg[0][8]/CP (CFD1XL)             0.00       2.75 r
+  library setup time                      -0.28       2.47
+  data required time                                  2.47
+  -----------------------------------------------------------
+  data required time                                  2.47
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                         0.76
+
+
+  Startpoint: wr_p_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: memory_reg[0][4]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  wr_p_reg[1]/CP (CFD2QX1)                 0.00       0.00 r
+  wr_p_reg[1]/Q (CFD2QX1)                  0.31       0.31 r
+  U696/Z (CIVX2)                           0.07       0.38 f
+  U708/Z (CND2X1)                          0.09       0.47 r
+  U665/Z (CNR3XL)                          0.09       0.56 f
+  U661/Z (CNIVX1)                          0.28       0.84 f
+  U1029/Z (CANR2X1)                        0.16       1.00 r
+  U1030/Z (CAN4X1)                         0.21       1.22 r
+  U1036/Z (CND2X1)                         0.07       1.28 f
+  U670/Z (CMXI2X1)                         0.28       1.56 r
+  U1037/Z (CMXI2XL)                        0.15       1.71 f
+  memory_reg[0][4]/D (CFD1XL)              0.00       1.71 f
+  data arrival time                                   1.71
+
+  clock clk (rise edge)                    3.00       3.00
+  clock network delay (ideal)              0.00       3.00
+  clock uncertainty                       -0.25       2.75
+  memory_reg[0][4]/CP (CFD1XL)             0.00       2.75 r
+  library setup time                      -0.28       2.47
+  data required time                                  2.47
+  -----------------------------------------------------------
+  data required time                                  2.47
+  data arrival time                                  -1.71
+  -----------------------------------------------------------
+  slack (MET)                                         0.76
+
+
+1
+write -hierarchy -format verilog -output fifon_gates.v
+Writing verilog file '/home/014552590/home/fifon_gates.v'.
+1
+quit
+
+Thank you...
